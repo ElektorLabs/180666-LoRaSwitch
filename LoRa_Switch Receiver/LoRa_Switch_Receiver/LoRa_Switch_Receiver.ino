@@ -651,8 +651,8 @@ static void rx_func (osjob_t* job) {
  **************************************************************************************************/
 uint32_t ReadFrameCounter( void ){
     //We will read the framecounter from the eeprom and do some integrity checks
-    uint8_t data=0;
-    uint8_t inverted_data=0;
+    uint32_t data=0;
+    uint32_t inverted_data=0;
     EEPROM.get(0, data);
     EEPROM.get(8, inverted_data);
     inverted_data = (~inverted_data) ;
@@ -679,8 +679,8 @@ uint32_t ReadFrameCounter( void ){
  **************************************************************************************************/
 void WriteFrameCounter( uint32_t Value){
   //Write Data
-  uint8_t data= Value;
-  uint8_t inverted_data = ~Value;
+  uint32_t data= Value;
+  uint32_t inverted_data = ~Value;
   EEPROM.put(0, data);
   EEPROM.put(8, inverted_data ) ;
   
